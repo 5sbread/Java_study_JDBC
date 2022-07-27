@@ -1,12 +1,16 @@
 package com.bh.test;
 
+import java.util.ArrayList;
+
 import com.bh.countries.CountriesDAO;
 import com.bh.regions.RegionsDAO;
+import com.bh.regions.RegionsDTO;
+import com.bh.regions.RegionsView;
 import com.bh.util.DBConnector;
 
 public class TestMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 
 //		//DBConnector dbConnector = new DBConnector();
 //		//ㄴ> static 사용해서 객체 만들 필요 없어짐
@@ -20,23 +24,28 @@ public class TestMain {
 		
 //==========================================================		
 		
-//		RegionsDAO regionDAO = new RegionsDAO();
-//		try {
-//			regionDAO.getlist();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		RegionsDAO regionDAO = new RegionsDAO();
+		RegionsView regionsView = new RegionsView();
 		
-//==========================================================		
-		
-		CountriesDAO countryDAO = new CountriesDAO();
 		try {
-			countryDAO.getlist();
+			ArrayList<RegionsDTO> ar = regionDAO.getlist();
+			//regionDAO.getDetail(1); //없는 번호는 값이 안나옴
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+//==========================================================		
+		
+//		CountriesDAO countryDAO = new CountriesDAO();
+//		try {
+//			//countryDAO.getlist();
+//			countryDAO.getDetail("AU");
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}//try
 		
 
 	}
