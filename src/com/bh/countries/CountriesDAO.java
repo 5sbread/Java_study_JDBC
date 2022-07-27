@@ -3,6 +3,7 @@ package com.bh.countries;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.bh.util.DBConnector;
 
@@ -11,6 +12,7 @@ public class CountriesDAO {
 	//1. Countries의 모든 데이터 가져오기
 	public void getlist() throws Exception {
 
+		ArrayList<CountriesDTO> ar = new ArrayList();
 		Connection con = DBConnector.getConnection();
 		
 		String sql = "SELECT * FROM COUNTRIES";
@@ -36,7 +38,9 @@ public class CountriesDAO {
 	
 //=================================================================
 	//2. 하나만 가져오기
-	public void getDetail(String country_id) throws Exception{
+	public CountriesDTO getDetail(String country_id) throws Exception{
+		
+		CountriesDTO countriesDTO = new CountriesDTO();
 		
 		Connection con = DBConnector.getConnection();
 		String sql = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID=?";
@@ -45,14 +49,16 @@ public class CountriesDAO {
 		st.setString(1, country_id);
 		ResultSet rs = st.executeQuery();
 		
-		if(rs.next()) {
-			String cId = rs.getString(1);
-			String cName = rs.getString(2);
+		if(rs.next()) { //데이터가 있으면
+			countriesDTO.setCountry_id(rs.getString("country_id"));
+			countriesDTO.setCountry_name(rs.getString("country_name"));
+			countriesDTO.setRegion_id(rs.getInt("region_id"));
 			
-			System.out.println(cId);
-			System.out.println(cName);
+			CountriesView.
 		}
 		DBConnector.disConnect(rs, st, con);
+		return countriesDTO;
+		
 	}//2
 	
 	
