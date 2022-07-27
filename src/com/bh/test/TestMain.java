@@ -3,6 +3,7 @@ package com.bh.test;
 import java.util.ArrayList;
 
 import com.bh.countries.CountriesDAO;
+import com.bh.countries.CountriesDTO;
 import com.bh.regions.RegionsDAO;
 import com.bh.regions.RegionsDTO;
 import com.bh.regions.RegionsView;
@@ -24,28 +25,32 @@ public class TestMain {
 		
 //==========================================================		
 		
-		RegionsDAO regionDAO = new RegionsDAO();
-		RegionsView regionsView = new RegionsView();
-		
-		try {
-			ArrayList<RegionsDTO> ar = regionDAO.getlist();
-			//regionDAO.getDetail(1); //없는 번호는 값이 안나옴
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-//==========================================================		
-		
-//		CountriesDAO countryDAO = new CountriesDAO();
+//		RegionsDAO regionDAO = new RegionsDAO();
+//		RegionsView regionsView = new RegionsView();
+//		
 //		try {
-//			//countryDAO.getlist();
-//			countryDAO.getDetail("AU");
+//			ArrayList<RegionsDTO> ar = regionDAO.getlist();
+//			//regionDAO.getDetail(1); //없는 번호는 값이 안나옴
+//			
 //		} catch (Exception e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
-//		}//try
+//		}
+		
+//==========================================================		
+		
+		CountriesDAO countryDAO = new CountriesDAO();
+		try {
+			//countryDAO.getlist();
+			//countryDAO.getDetail("AU");
+			
+			ArrayList<CountriesDTO> ar = countryDAO.getlist();
+			countryDAO.getDetail("AU");
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}//try
 		
 
 	}
