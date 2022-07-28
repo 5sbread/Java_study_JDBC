@@ -64,5 +64,37 @@ public class CountriesDAO {
 		
 	}//2
 	
+//=================================================================
+		//3. 
+		public CountriesDTO getDetai(String country_id) throws Exception{
+			
+			CountriesView countriesView = new CountriesView();
+			CountriesDTO countriesDTO = new CountriesDTO();
+			
+			Connection con = DBConnector.getConnection();
+			String sql = "SELECT * FROM COUNTRIES WHERE COUNTRY_NAME LIKE ?";
+			//Sting 타입인 경우 문자열 내의 특수기호에 알아서 ''를 넣어줌 -> '%' 가능 | '%&' 불가능			
+			//'%'||?||'%' 이렇게도 가능
+			//Setter 값 앞뒤로 붙여도 가능
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			//? 있으면 값 세팅
+			st.setString(1, "%"+country_id+"%");
+			
+			st.setString(1, country_id);
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()) { //데이터가 있으면
+				countriesDTO.setCountry_id(rs.getString("country_id"));
+				countriesDTO.setCountry_name(rs.getString("country_name"));
+				countriesDTO.setRegion_id(rs.getInt("region_id"));
+				
+				countriesView.view(countriesDTO);
+			}
+			DBConnector.disConnect(rs, st, con);
+			return countriesDTO;
+			
+		}//3	
+	
 	
 }
