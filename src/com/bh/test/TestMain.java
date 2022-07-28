@@ -27,17 +27,24 @@ public class TestMain {
 		
 //==========================================================		
 		
-//		RegionsDAO regionDAO = new RegionsDAO();
-//		RegionsView regionsView = new RegionsView();
-//		
-//		try {
-//			ArrayList<RegionsDTO> ar = regionDAO.getlist();
-//			//regionDAO.getDetail(1); //없는 번호는 값이 안나옴
-//			
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		RegionsDAO regionDAO = new RegionsDAO();
+		RegionsView regionsView = new RegionsView();
+		RegionsDTO regionsDTO = new RegionsDTO();
+		
+		try {
+			//ArrayList<RegionsDTO> ar = regionDAO.getlist();
+			//regionDAO.getDetail(1); //없는 번호는 값이 안나옴
+			
+			regionsDTO.setRegion_id(6);
+			regionsDTO.setRegion_name("Mars");
+			int result = regionDAO.setRegion();
+		?? 코드 고치기 
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 //==========================================================		
 //		
@@ -56,13 +63,13 @@ public class TestMain {
 		
 //==========================================================	
 		
-		EmployeesDAO employeesDAO = new EmployeesDAO();
-		try {
-			employeesDAO.getlist();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		EmployeesDAO employeesDAO = new EmployeesDAO();
+//		try {
+//			employeesDAO.getlist();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
 
