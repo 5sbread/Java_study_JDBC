@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.bh.countries.CountriesDAO;
 import com.bh.countries.CountriesDTO;
+import com.bh.employees.EmployeesDTO;
 import com.bh.regions.RegionsDAO;
 import com.bh.regions.RegionsDTO;
 import com.bh.regions.RegionsView;
@@ -38,20 +39,23 @@ public class TestMain {
 //		}
 		
 //==========================================================		
+//		
+//		CountriesDAO countryDAO = new CountriesDAO();
+//		try {
+//			//countryDAO.getlist();
+//			//countryDAO.getDetail("AU");
+//			
+//			ArrayList<CountriesDTO> ar = countryDAO.getlist();
+//			countryDAO.getDetail("AU");
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}//try
 		
-		CountriesDAO countryDAO = new CountriesDAO();
-		try {
-			//countryDAO.getlist();
-			//countryDAO.getDetail("AU");
-			
-			ArrayList<CountriesDTO> ar = countryDAO.getlist();
-			countryDAO.getDetail("AU");
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}//try
+//==========================================================	
 		
+		//EmployeesDAO
 
 	}
 
