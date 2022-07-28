@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.bh.countries.CountriesDAO;
 import com.bh.countries.CountriesDTO;
+import com.bh.employees.EmployeesDAO;
 import com.bh.employees.EmployeesDTO;
 import com.bh.regions.RegionsDAO;
 import com.bh.regions.RegionsDTO;
@@ -55,7 +56,13 @@ public class TestMain {
 		
 //==========================================================	
 		
-		//EmployeesDAO
+		EmployeesDAO employeesDAO = new EmployeesDAO();
+		try {
+			employeesDAO.getlist();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
