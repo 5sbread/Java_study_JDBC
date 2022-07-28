@@ -82,5 +82,34 @@ public class RegionsDAO {
 			return regionsDTO;
 		}//2
 
+//=================================================================
+	//3. Regions에 데이터 추가
+		public int setRegion() throws Exception{
+		
+		RegionsDTO regionsDTO = new RegionsDTO();
+		RegionsView regionsView = new RegionsView();	
+			
+		Connection con = DBConnector.getConnection();
+		String sql = "INSERT INTO REGIONS VALUES(?, ?)";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setInt(1, regionsDTO.getRegion_id());
+		st.setString(2, regionsDTO.getRegion_name());
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);
+		return result;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
 
 }
