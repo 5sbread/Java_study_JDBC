@@ -76,8 +76,44 @@ public class EmployeesDAO {
 		DBConnector.disConnect(rs, st, con);
 		return employeesDTO;	
 		
+	}//2
+
+
+//----------------------------------------------------	
+	
+	public void getJoinTest (EmployeesDTO employeesDTO) throws Exception{
+		Connection con = DBConnector.getConnection();
+				
+		String sql = "SELECT E.LAST_NAME, E.SALARY, D.DEPARTMENT_NAME"
+				+ "FROM EMPLOYEES E"
+				+ "    INNER JOIN"
+				+ "    DEPARTMENTS D"
+				+ "    ON E.DEPARTMENT_ID = D.DEPARTMENT_ID"
+				+ "WHERE E.EMPLOYEE_ID=? ";	
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setInt(1, employeesDTO.getEmployee_id());
+				
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			employeesDTO = new EmployeesDTO();
+			employeesDTO.setLast_name(rs.getString("LAST_NAME"));
+			employeesDTO.setSalary(rs.getInt("SALARY"));
+			DepartmenstDTO dt = new DepartMentsDTO();
+			dt.setDepartment_name(rs.getString("Department_NAME"))
+		}
+		
+		DBConnector.disConnect(rs, st, con); //클래스 메서드
 		
 		
 	}
-
+	
+	
+	
+	
+	
+	
+	
 }
